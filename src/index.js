@@ -10,20 +10,20 @@ function printNumber(number, char) {
   }
 
   let elements = String(number).split("") // ["1", "1"]
-  console.log(elements)
 
-  //console.log(numbers[1][0])
+  let msg="";
+  let ligne="";
 
-  let msg='';
-
-  //msg = numbers[elements[0][0]]
-
-  for(let i=0; i < 2; i++){
-    
+  for(let i=0; i < 6; i++){
+    for(let j=0; j<2; j++){
+      ligne += numbers[elements[j]][i] 
+    }
+    msg += ligne + "\n"
+    ligne = ""   
   }
 
-  console.log(numbers[elements[0]][0] )
-  //console.log(msg)
+  
+  console.log(replaceChar(msg))
 
 }
 
