@@ -16,24 +16,19 @@ function printNumber(number, char) {
   let elements = String(number)
     .split("")
     .reverse();
-  //console.log(elements.length);
-
-  for (let k = 0; k < 6 - elements.length; k++) {
+  for (let k = 0; k < 5 - String(number).length; k++) {
     elements.push("0");
-    console.log(k, elements);
   }
-  console.log(elements);
-
   elements = elements.reverse();
 
   // draw
-  let fullLign = Array(elements.length * 6 + 6 + elements.length).join("1");
-  let lignFill = "1" + Array(elements.length * 7 + 4).join("0") + "1\n";
+  let fullLign = Array(5 * 6 + 6 + 5).join("1");
+  let lignFill = "1" + Array(5 * 7 + 4).join("0") + "1\n";
   let msg = fullLign + "\n" + lignFill;
   let ligne = "";
 
   for (let i = 0; i < 6; i++) {
-    for (let j = 0; j < elements.length; j++) {
+    for (let j = 0; j < 5; j++) {
       ligne += numbers[elements[j]][i] + " ";
     }
     msg += "1  " + ligne + " 1\n";
@@ -44,4 +39,4 @@ function printNumber(number, char) {
   return msg.replace(/0/g, " ").replace(/1/g, char);
 }
 
-console.log(printNumber(99, "*"));
+console.log(printNumber(9951, "*"));
