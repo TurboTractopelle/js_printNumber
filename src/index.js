@@ -12,24 +12,22 @@ function printNumber(number, char) {
     9: ["011110", "110011", "110011", "011110", "001100", "011000"]
   };
 
-  function replaceChar(numberArr) {
-    return numberArr.replace(/0/g, " ").replace(/1/g, char);
-  }
-
   let elements = String(number).split("");
-
-  let msg = "";
+  let fullLign = Array(elements.length * 6 + 5).join("1") + "\n";
+  let lignFill = "1" + Array(elements.length * 6 + 3).join("0") + "1\n";
+  let msg = fullLign + lignFill;
   let ligne = "";
 
   for (let i = 0; i < 6; i++) {
     for (let j = 0; j < elements.length; j++) {
       ligne += numbers[elements[j]][i] + " ";
     }
-    msg += ligne + "\n";
+    msg += "1 " + ligne + "1\n";
     ligne = "";
   }
+  msg += lignFill + fullLign;
 
-  console.log(replaceChar(msg));
+  return msg.replace(/0/g, " ").replace(/1/g, char);
 }
 
-console.log(printNumber(16789, "5"));
+console.log(printNumber(1, "5"));
